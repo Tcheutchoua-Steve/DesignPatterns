@@ -1,0 +1,23 @@
+@startuml
+
+interface CoffeeMachineInterface{
++ chooseFirstSelection() : void
++ chooseSecondSelection() : void
+}
+
+CoffeeMachineInterface <.. CoffeeTouchscreenAdapter
+CoffeeTouchscreenAdapter --> OldCoffeeMachine
+
+
+class CoffeeTouchscreenAdapter {
++ OldCoffeeMachine oldVendingMachine
++ chooseFirstSelection() : void
++ chooseSecondSelection() : void
+}
+
+class OldCoffeeMachine {
++ selectA(): void
++ selectB(): void
+}
+
+@enduml
