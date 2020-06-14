@@ -1,0 +1,38 @@
+@startuml
+
+interface IComponent{
++ play() : void
++ setPlaybackSpeed(speed: float): void
++ getName() : String
+}
+
+IComponent <|.. Song
+IComponent <|.. Playlist
+note on link #green: implements the component too
+
+Playlist o-- "0..*" IComponent : aggregation
+
+
+
+class Song {
++ String songName
++ String artist
++ float speed
++ play() : void
++ setPlaybackSpeed(speed: float): void
++ getName() : String
++ getArtist() : String
+}
+
+class Playlist {
++ String playlistName
++ playlist ArrayList<IComponent>
++ setPlaybackSpeed(speed: float): void
++ getName(): String
++ add(component : IComponent): void
++ remove(component : IComponent): void
+}
+
+
+
+@enduml
